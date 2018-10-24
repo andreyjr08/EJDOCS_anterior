@@ -1,0 +1,14 @@
+.margen{
+	margin: 10px;
+	background-color: #5cb85c;
+	color: white;
+	
+}
+
+body {
+	background-color: white;
+}
+
+.table{
+	font-size: 90%;
+}

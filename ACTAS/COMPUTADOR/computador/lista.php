@@ -7,7 +7,6 @@ $result = $usuarios ->select_persons();
 ?>
 
 <link rel="stylesheet" href="css/font-awesome.min.css">
-
 <div class="box-header">
     <i class="ion ion-clipboard"></i>
     <div class="pull-right box-tools">

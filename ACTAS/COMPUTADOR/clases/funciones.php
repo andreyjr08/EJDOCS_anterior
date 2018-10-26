@@ -1,6 +1,6 @@
 <?php
 namespace clases_pdo;
-include("config.php");
+include("../../../LOG/CADENA/config.php");
 class funciones{
 //---------persona---------------
     private $id;

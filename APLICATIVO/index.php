@@ -12,10 +12,13 @@
     <script type="text/javascript" language="javascript" src="js/jquery-1.11.2.js" ></script>
     <script type="text/javascript" language="javascript" src="js/ajax_lista.js" ></script>
     <link rel="stylesheet" href="../CSS/bootstrap/font-awesome.min.css">
-    <link rel="stylesheet" href="js/jquery.min.js">
+    <link rel="stylesheet" href="../ACTAS/COMPUTADOR/js/jquery.min.js">
     <link rel="stylesheet" href="../ACTAS/CSS/bootstrap/bootstrap.min.css">
     <link rel="stylesheet" href="../ACTAS/CSS/style.css">
     <link rel="stylesheet" href="../ACTAS/CSS/css.css" type="text/css">
+    <link rel="stylesheet" href="../CSS_LIST/css_list.css" type="text/css">
+    <script src="http://code.jquery.com/jquery-latest.js"></script>
+    <script src="CSS_LIST/JS/main.js"></script>
 
   <title>Actas</title>
   <meta charset="utf-8">
@@ -35,33 +38,58 @@
         </div>
     </div>
     </div>
-    <div class="container-fluid">
-        <div class="row">
-            <div class="dropdown">
-              <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Actas
-              </button>
-              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                <a class="dropdown-item" href="#">Computador</a>
-                <a class="dropdown-item" href="#">Celular</a>
-                <a class="dropdown-item" href="#">pantalla</a>
-                <a class="dropdown-item" href="#">Disco Duro</a>
-                <a class="dropdown-item" href="#">Impresora</a>
-              </div>
-            </div>
-        
-        
-            <span>Tickets</span>
-       
-        
-            <span>Tareas</span>
-        </div>
-    </div>
-<div class="container">
+<div class="container-fluid">
     <div class="row">
-        <div class="panel-group col-sm-2">
-            <div class="panel panel-primary">
-                <div class="panel-heading">Menú</div>
+        <div class="col-md-1 col-lg-1 col-xs-1">
+         XHTML
+
+    <header>
+        <div class="menu_bar">
+            <a href="#" class="bt-menu"><span class="icon-list2"></span>Menú</a>
+        </div>
+
+        <nav>
+            <ul>
+                <li><a href="#"><span class="icon-house"></span>Inicio</a></li>
+                <li><a href="#"><span class="icon-suitcase"></span>Trabajos</a></li>
+                <li class="submenu">
+                    <a href="#"><span class="icon-rocket"></span>Proyectos<span class="caret icon-arrow-down6"></span></a>
+                    <ul class="children">
+                        <li><a href="#">SubElemento #1 <span class="icon-dot"></span></a></li>
+                        <li><a href="#">SubElemento #2 <span class="icon-dot"></span></a></li>
+                        <li><a href="#">SubElemento #3 <span class="icon-dot"></span></a></li>
+                    </ul>
+                </li>
+                <li><a href="#"><span class="icon-earth"></span>Servicios</a></li>
+                <li><a href="#"><span class="icon-mail"></span>Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+    <header>
+        <div class="menu_bar">
+            <a href="#" class="bt-menu"><span class="icon-list2"></span>Menú</a>
+        </div>
+ 
+        <nav>
+            <ul>
+                <li><a href="#"><span class="icon-house"></span>Inicio</a></li>
+                <li><a href="#"><span class="icon-suitcase"></span>Trabajos</a></li>
+                <li class="submenu">
+                    <a href="#"><span class="icon-rocket"></span>Proyectos<span class="caret icon-arrow-down6"></span></a>
+                    <ul class="children">
+                        <li><a href="#">SubElemento #1 <span class="icon-dot"></span></a></li>
+                        <li><a href="#">SubElemento #2 <span class="icon-dot"></span></a></li>
+                        <li><a href="#">SubElemento #3 <span class="icon-dot"></span></a></li>
+                    </ul>
+                </li>
+                <li><a href="#"><span class="icon-earth"></span>Servicios</a></li>
+                <li><a href="#"><span class="icon-mail"></span>Contacto</a></li>
+            </ul>
+        </nav>
+    </header> 
+        </div>
+            
+                <!--<div class="panel-heading">Menú</div>
                     <div class="panel-body">
                             <div class="form-group" id="opciones">
                                 <div class="col-sm-2">
@@ -72,9 +100,7 @@
                                     </a>
                                 </div>
                             </div>
-                    </div>
-            </div>
-         </div>
+                    </div>-->
 
 <!-- Muestra la pagina o llama la otra pagina por ajax para no redireccionar por url-->
     <div id='oculto' style='display:none;' class="col-sm-10">
@@ -91,7 +117,7 @@
 
 </div>
 </div>
-    <script src="js/jquery.min.js"></script>
+    <script src="../ACTAS/COMPUTADOR/js/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.11/js/jquery.dataTables.min.js"></script>
@@ -100,7 +126,7 @@
     <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
 
     <!-- Funciones JS para traer el menú de computador -->
-    <script src="js/computador.js"></script>
+    <script src="../ACTAS/COMPUTADOR/js/computador.js"></script>
     <script>
         $(document).ready(Inicio);
     </script>

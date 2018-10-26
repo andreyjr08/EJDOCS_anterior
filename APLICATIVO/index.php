@@ -17,8 +17,7 @@
     <link rel="stylesheet" href="../ACTAS/CSS/style.css">
     <link rel="stylesheet" href="../ACTAS/CSS/css.css" type="text/css">
     <link rel="stylesheet" href="../CSS_LIST/css_list.css" type="text/css">
-    <script src="http://code.jquery.com/jquery-latest.js"></script>
-    <script src="CSS_LIST/JS/main.js"></script>
+    
 
   <title>Actas</title>
   <meta charset="utf-8">
@@ -40,53 +39,24 @@
     </div>
 <div class="container-fluid">
     <div class="row">
-        <div class="col-md-1 col-lg-1 col-xs-1">
-         XHTML
-
-    <header>
-        <div class="menu_bar">
-            <a href="#" class="bt-menu"><span class="icon-list2"></span>Menú</a>
-        </div>
-
-        <nav>
-            <ul>
-                <li><a href="#"><span class="icon-house"></span>Inicio</a></li>
-                <li><a href="#"><span class="icon-suitcase"></span>Trabajos</a></li>
-                <li class="submenu">
-                    <a href="#"><span class="icon-rocket"></span>Proyectos<span class="caret icon-arrow-down6"></span></a>
-                    <ul class="children">
-                        <li><a href="#">SubElemento #1 <span class="icon-dot"></span></a></li>
-                        <li><a href="#">SubElemento #2 <span class="icon-dot"></span></a></li>
-                        <li><a href="#">SubElemento #3 <span class="icon-dot"></span></a></li>
+        <div class="col-md-12 col-lg-12 col-xs-12">
+      <div id="header">
+            <ul class="nav">
+                <li><a href="">Inicio</a></li>
+                <li><a href="">Actas</a>
+                    <ul>
+                        <li><a href="../ACTAS/COMPUTADOR/computador/lista.php" role="button">Computador</a></li>
+                        <li><a href="">Celular</a></li>
+                        <li><a href="">Pantallas</a></li>
+                        <li><a href="">Disco Duro</a>
+                        <li><a href="">Impresora</a></li>
                     </ul>
                 </li>
-                <li><a href="#"><span class="icon-earth"></span>Servicios</a></li>
-                <li><a href="#"><span class="icon-mail"></span>Contacto</a></li>
+                <li><a href="">Tikect</a></li>
+                <li><a href="">Tareas</a></li>
+                <li><a href="">Facturas</a></li>
             </ul>
-        </nav>
-    </header>
-    <header>
-        <div class="menu_bar">
-            <a href="#" class="bt-menu"><span class="icon-list2"></span>Menú</a>
         </div>
- 
-        <nav>
-            <ul>
-                <li><a href="#"><span class="icon-house"></span>Inicio</a></li>
-                <li><a href="#"><span class="icon-suitcase"></span>Trabajos</a></li>
-                <li class="submenu">
-                    <a href="#"><span class="icon-rocket"></span>Proyectos<span class="caret icon-arrow-down6"></span></a>
-                    <ul class="children">
-                        <li><a href="#">SubElemento #1 <span class="icon-dot"></span></a></li>
-                        <li><a href="#">SubElemento #2 <span class="icon-dot"></span></a></li>
-                        <li><a href="#">SubElemento #3 <span class="icon-dot"></span></a></li>
-                    </ul>
-                </li>
-                <li><a href="#"><span class="icon-earth"></span>Servicios</a></li>
-                <li><a href="#"><span class="icon-mail"></span>Contacto</a></li>
-            </ul>
-        </nav>
-    </header> 
         </div>
             
                 <!--<div class="panel-heading">Menú</div>
@@ -118,7 +88,7 @@
 </div>
 </div>
     <script src="../ACTAS/COMPUTADOR/js/jquery.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
+    <script src="../ACTAS/COMPUTADOR/js/bootstrap.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.11/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.11/js/dataTables.bootstrap.min.js"></script>

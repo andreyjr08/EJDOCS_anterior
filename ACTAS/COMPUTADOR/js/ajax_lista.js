@@ -4,7 +4,6 @@ $(document).ready(function(e) {
 			$.ajax({
 			  success: function(dataType) {
 				$("#cargaDeDatos").load('computador.php');
-				
 			  }
 			});
 		

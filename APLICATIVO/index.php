@@ -24,40 +24,41 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
-   <div class="jumbotron hed text-white">
+   <div class="hed text-white">
     <div class="row">
-        <div class="col-sm-12 text-right sesion">
+        <div class="col-md-10 col-lg-10 col-xs-10 text-right sesion">
              <span><?php  if(isset($_SESSION['usuario'])) echo $_SESSION['usuario'];?></span>
              <i class="fas fa-power-off" title="Cerrar sesion"></i>                
         </div>
-    </div>
-    <div class="row">
-        <div class="col-md-12 col-lg-12 col-xs-12">
-            <h1 class="display-5">EJDOCS</h1>            
+        <div class="col-md-10 col-lg-10 col-xs-10">
+            <h1 class="display-1">EJDOCS</h1>            
         </div>
     </div>
     </div>
 <div class="container-fluid">
     <div class="row">
-        <div class="col-md-12 col-lg-12 col-xs-12">
-      <div id="header">
-            <ul class="nav">
-                <li><a href="">Inicio</a></li>
-                <li><a href="">Actas</a>
-                    <ul>
+        <div class="col-md-2 col-lg-2 col-xs-2">
+          <div id="header"> 
+            <ul id="menu-v">
+                <li><a href="#">Inicio</a></li>
+                <li><a href="#" >Tikect</a></li>
+                <li><a href="#" >Tareas</a></li>
+                <li><a href="#">Facturas</a></li>
+                <li><a href="#" class="arrow">Actas</a>
+                    <ul>                
+                      <div id="opciones">
                         <li><a href="../ACTAS/COMPUTADOR/computador/lista.php" role="button">Computador</a></li>
                         <li><a href="">Celular</a></li>
                         <li><a href="">Pantallas</a></li>
                         <li><a href="">Disco Duro</a>
-                        <li><a href="">Impresora</a></li>
+                        <li><a href="">Impresora</a> </li>
+                        </div>
                     </ul>
                 </li>
-                <li><a href="">Tikect</a></li>
-                <li><a href="">Tareas</a></li>
-                <li><a href="">Facturas</a></li>
-            </ul>
+            </ul>   
         </div>
         </div>
+
             
                 <!--<div class="panel-heading">Menú</div>
                     <div class="panel-body">
@@ -73,20 +74,22 @@
                     </div>-->
 
 <!-- Muestra la pagina o llama la otra pagina por ajax para no redireccionar por url-->
-    <div id='oculto' style='display:none;' class="col-sm-10">
-        <div class="panel-group show col-sm-12" id="contenedor">
-            <div class="panel panel-primary">
-                <div class="panel-heading" id="titulo">Panel Principal</div>
-                <div class="panel-body">
-                    <div class="form-group" id="contenido">
+    <div class="col-md-10 col-lg-10 col-xs-10 top">
+        <div id='oculto' style='display:none;' class="col-sm-12">
+            <div class="panel-group show col-sm-12" id="contenedor">
+                <div class="panel panel-primary">
+                    <div class="panel-heading" id="titulo">Panel Principal</div>
+                    <div class="panel-body">
+                        <div class="form-group" id="contenido">
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+    </div>
+    </div>
 
-</div>
-</div>
     <script src="../ACTAS/COMPUTADOR/js/jquery.min.js"></script>
     <script src="../ACTAS/COMPUTADOR/js/bootstrap.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>

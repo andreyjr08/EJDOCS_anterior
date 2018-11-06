@@ -6,14 +6,14 @@ $usuarios = new funciones();
 $result = $usuarios ->select_persons();
 ?>
 
-<link rel="stylesheet" href="css/font-awesome.min.css">
+<link rel="stylesheet" href="../../CSS/bootstrap/font-awesome.min.css">
 <div class="box-header">
     <i class="ion ion-clipboard"></i>
     <div class="pull-right box-tools">
         <button class="btn btn-info btn-sm" id="nuevo_computador" data-toggle="tooltip" title="Nueva acta Computador">
             <i class="fas fa-plus" aria-hidden="true"></i>
         </button>
-        <button class="btn btn-danger btn-sm btncerrar_nueva_acta_computador" data-toggle="tooltip" title="Ocultar">
+        <button class="btn btn-danger btn-sm btncerrar_nueva_acta_computador2" data-toggle="tooltip" title="Ocultar">
             <i class="fas fa-times"></i>
         </button>
     </div>

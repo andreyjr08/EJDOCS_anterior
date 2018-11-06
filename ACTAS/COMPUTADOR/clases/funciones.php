@@ -34,7 +34,7 @@ class funciones{
      private function Insertar(){
          $resu = array();
         $pdo = $this->pdo;
-        $sql = "INSERT INTO acta (PARA, CEDULA, DE, ASUNTO, COMPUTADOR_ID,CELULAR_ID) VALUES (:para, :cedula, :de, :asunto, :computadorPK, :celularPK)";
+        $sql = "INSERT INTO actas (PARA, CEDULA, DE, ASUNTO, COMPUTADOR_ID,CELULAR_ID) VALUES (:para, :cedula, :de, :asunto, :computadorPK, :celularPK)";
         $query = $pdo->prepare($sql);
         $result = $query->execute([//$result = $query->execute([
             'para' => $this->PARA,
@@ -46,7 +46,8 @@ class funciones{
             ]);
             return $result;
         }
-        public function addComp($computador, $activo_fijo,$serial, $procesador, $memoria_ram, $serial_cargador){
+        //recopilacion de datos para ejecutar la insercion de un nuevo computador
+        public function añadirComputador($computador, $activo_fijo,$serial, $procesador, $memoria_ram, $serial_cargador){
         $this->COMPUTADOR = $computador;
         $this->ACTIVO_FIJO = $activo_fijo;
         $this->SERIAL= $serial; 
@@ -56,24 +57,26 @@ class funciones{
         $result = $this->InsertarC();
         return $result;
     }
-     private function InsertarC(){
+    //consulta sql para insertar nuevo computador
+     private function InsertarComputador(){
         $resu = array();
         $pdo = $this->pdo;
-        $sql = "INSERT INTO computador (COMPUTADOR, ACTIVO_FIJO, SERIAL, PROCESADOR, MEMORIA_RAM,SERIAL_CARGADOR) VALUES (:computador, :activo_fijo, :serial, :procesador, :memoria_ram, :serial_cargador)";
+        $sql = "INSERT INTO computador (SERIAL, ACTIVO_FIJO, PROCESADOR, MEMORIA_RAM, SERIAL_CARGADOR,MODELO_ID,ACTA_ID) VALUES (:serial, :activo_fijo, :procesador, :memoria_ram, :serial_cargador,modelo_id,acta_id)";
         $query = $pdo->prepare($sql);
         $result = $query->execute([//$result = $query->execute([
-            'computador' => $this->COMPUTADOR,
-            'activo_fijo' => $this->ACTIVO_FIJO,
             'serial' => $this->SERIAL,
+            'activo_fijo' => $this->ACTIVO_FIJO,
             'procesador' => $this->PROCESADOR,
             'memoria_ram' => $this->MEMORIA_RAM,
             'serial_cargador' => $this->SERIAL_CARGADOR,
+            'modelo_id' => $this->MODELO_ID,
+            'acta_id' => $this->ACTA_ID,
             ]);
             return $result;
         }
         public function select_persons(){
         $pdo = $this->pdo;
-        $sql = "SELECT A.ID,A.PARA, A.CEDULA, A.DE, A.ASUNTO, A.COMPUTADOR_ID, A.CELULAR_ID,CO.COMPUTADOR FROM acta A INNER JOIN computador CO ON A.COMPUTADOR_ID = CO.ID";
+        $sql = "SELECT A.ID,A.USUARIO_ID, A.DEPARTAMENTO_ID, A.ASUNTO_ID, A.CREADO_POR FROM actas A INNER JOIN computadores CO ON CO.ACTA_ID = A.ID";
         $query = $pdo->query($sql);
         $queryResult = $query->fetchAll(\PDO::FETCH_ASSOC);
         return $queryResult;

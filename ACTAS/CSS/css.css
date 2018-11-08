@@ -15,6 +15,12 @@
 .bg-primary2{
 	background-color: #006699;
 }
+.dimension{
+	height: 36px !important;	
+}
+.h{
+	height: 50%;
+}
 input{
 	text-transform: uppercase;
 }

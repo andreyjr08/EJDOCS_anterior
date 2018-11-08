@@ -13,14 +13,20 @@
      });
 // cierra y nos envia a la pagina principal INDEX.HTML
     $("#contenido").on("click","button.btncerrar_nueva_acta_computador2",function(){
+        $("#titulo").html("Listado de actas");
+        $( "#contenido" ).load("../ACTAS/COMPUTADOR/computador/lista.php");
+    })
+    // redirecciona a la pagina principal
+    $("#contenido").on("click","button.btn_inicio",function(){
         $("#titulo").html("Nueva acta computador");
-        $( "#contenido" ).load("computador/computador.php");
+        $( "#none" ).style.display='block';
+        //location.href= "index.php";
     })
 
 // adicionar nuevo elemento a nuestra base de datos
     $("#contenido").on("click","button#nuevo_computador",function(){
         $("#titulo").html("Nueva acta computador");
-        $( "#contenido" ).load("../ACTAS/COMPUTADOR/computador/computador.php");
+        $( "#contenido" ).load("../ACTAS/COMPUTADOR/computador/persona.php");
     })
 
 

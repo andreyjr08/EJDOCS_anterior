@@ -7,14 +7,24 @@ $result = $usuarios ->select_persons();
 ?>
 
 <link rel="stylesheet" href="../../CSS/bootstrap/font-awesome.min.css">
+<link rel="stylesheet" type="text/css" href="../ACTAS/CSS/css_list_actas.css">
+<div id="none">
 <div class="box-header">
     <i class="ion ion-clipboard"></i>
-    <div class="pull-right box-tools">
+    <div class="pull-right box-tools col-md-1 col-lg-1 col-xs-1">
         <button class="btn btn-info btn-sm" id="nuevo_computador" data-toggle="tooltip" title="Nueva acta Computador">
             <i class="fas fa-plus" aria-hidden="true"></i>
         </button>
-        <button class="btn btn-danger btn-sm btncerrar_nueva_acta_computador2" data-toggle="tooltip" title="Ocultar">
-            <i class="fas fa-times"></i>
+    </div>
+    <div class="pull-right box-tools col-md-11 col-lg-11 col-xs-11">
+        <button class="btn btn-info btn-sm" id="nuevo_computador" data-toggle="tooltip" title="Nueva acta Computador">
+           <i class="fas fa-desktop"></i>
+        </button>
+        <button class="btn btn-danger btn-sm btn_inicio" data-toggle="tooltip" title="Ocultar">
+            <i class="fas fa-mobile-alt"></i>
+        </button>
+        <button class="btn btn-primary btn-sm btn_inicio" data-toggle="tooltip" title="Ocultar">
+            <i class="fas fa-print"></i>
         </button>
     </div>
 </div>
@@ -55,6 +65,7 @@ $result = $usuarios ->select_persons();
         ?>
     </tbody>
     </table>
+</div>
 </div>
 </div>
 <script>

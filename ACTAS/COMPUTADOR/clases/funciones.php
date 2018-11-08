@@ -31,6 +31,18 @@ class funciones{
         $result = $this->Insertar();
         return $result;
     }
+    //--------------CONSULTA PARA BUSCADOR DE USUARIO
+        public function usuarios()
+        {
+        $pdo = $this->pdo;
+        $sql = "SELECT * FROM usuarios ORDER BY usuarios";
+        $query = $pdo->query($sql);
+        $queryResult = $query->fetchAll(\PDO::FETCH_ASSOC);
+        return $queryResult;
+        }
+
+
+    //--------------FIN DE LA CONSULTA
      private function Insertar(){
          $resu = array();
         $pdo = $this->pdo;
@@ -76,7 +88,7 @@ class funciones{
         }
         public function select_persons(){
         $pdo = $this->pdo;
-        $sql = "SELECT A.ID,A.USUARIO_ID, A.DEPARTAMENTO_ID, A.ASUNTO_ID, A.CREADO_POR FROM actas A INNER JOIN computadores CO ON CO.ACTA_ID = A.ID";
+        $sql = "SELECT A.ID,A.USUARIO_ID, A.CREADO_POR FROM actas A INNER JOIN computadores CO ON CO.ACTA_ID = A.ID";
         $query = $pdo->query($sql);
         $queryResult = $query->fetchAll(\PDO::FETCH_ASSOC);
         return $queryResult;

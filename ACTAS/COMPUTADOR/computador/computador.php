@@ -12,10 +12,7 @@
 	<div id="cargaDeDatos">
 
 		<div class="col-ms-12">
-			<div class="p-3 C bg-primary2 text-white text-center col-ms-12">
-				<span class="fas fa-desktop fa-3x"></span>
-			</div>
-		
+	
 		<div class="jumbotron">
 				<div class="col-ms-12">
 					<label>COMPUTADOR</label>

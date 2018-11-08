@@ -17,6 +17,8 @@
     <link rel="stylesheet" href="../ACTAS/CSS/style.css">
     <link rel="stylesheet" href="../ACTAS/CSS/css.css" type="text/css">
     <link rel="stylesheet" href="../CSS_LIST/css_list.css" type="text/css">
+    <script src="../ACTAS/COMPUTADOR/BUSCADOR/JS/peticion.js"></script>
+
     
 
   <title>Actas</title>
@@ -40,7 +42,7 @@
         <div class="col-md-2 col-lg-2 col-xs-2">
           <div id="header"> 
             <ul id="menu-v">
-                <li><a href="#">Inicio</a></li>
+                <li><a href="">Inicio</a></li>
                 <li><a href="#" >Tikect</a></li>
                 <li><a href="#" >Tareas</a></li>
                 <li><a href="#">Facturas</a></li>

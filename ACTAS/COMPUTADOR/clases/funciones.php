@@ -35,7 +35,15 @@ class funciones{
         public function usuarios()
         {
         $pdo = $this->pdo;
-        $sql = "SELECT * FROM usuarios ORDER BY usuarios";
+        $sql = "SELECT * FROM usuarios ORDER BY NOMBRES DESC";
+        $query = $pdo->query($sql);
+        $queryResult = $query->fetchAll(\PDO::FETCH_ASSOC);
+        return $queryResult;
+        }
+        public function departamento()
+        {
+        $pdo = $this->pdo;
+        $sql = "SELECT NOMBRE FROM departamentos WHERE ";
         $query = $pdo->query($sql);
         $queryResult = $query->fetchAll(\PDO::FETCH_ASSOC);
         return $queryResult;

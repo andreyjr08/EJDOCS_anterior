@@ -1,4 +1,13 @@
-
+<?php
+use clases_pdo\funciones;
+use clases_pdo\funcionLog;
+require '../clases/funciones.php';
+require '../../../LOG/funcion_log.php';
+$usuarios = new funciones();
+$result = $usuarios ->usuarios();
+$departamento = new funcionLog();
+$resultDepart = $departamento ->log();
+?>
 
 <script type="text/javascript" language="javascript" src="js/validacionP.js" ></script>
 <div class="box-header">
@@ -19,7 +28,7 @@
 						<div class="input-group mb-3">
 						  <select class="form-control dimension" id="inputGroupSelect01">
 						  	<option selected>Choose...</option>
-							<option value="1">Nuevo</option>
+							<option value="<?php foreach($result as $usuarios)echo $usuarios['CEDULA']?>"><?php foreach($result as $usuarios)echo $usuarios['NOMBRES']." ".$usuarios['APELLIDOS']?></option>
 						  </select>
 						</div>
 				</div>

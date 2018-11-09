@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 08-11-2018 a las 23:25:54
+-- Tiempo de generación: 09-11-2018 a las 23:33:57
 -- Versión del servidor: 10.1.34-MariaDB
 -- Versión de PHP: 7.2.7
 
@@ -81,7 +81,7 @@ CREATE TABLE `departamentos` (
 --
 
 INSERT INTO `departamentos` (`ID`, `NOMBRE`) VALUES
-(1, 'TECNOLOGIA');
+(1, 'TECNOLOGIAs DE LA INFORMACION');
 
 -- --------------------------------------------------------
 
@@ -99,23 +99,24 @@ CREATE TABLE `discos_duros` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `log`
+-- Estructura de tabla para la tabla `log2`
 --
 
-CREATE TABLE `log` (
-  `CEDULA` int(11) NOT NULL,
-  `NOMBRE` varchar(40) COLLATE utf8_spanish_ci NOT NULL,
-  `CONTRASENA` varchar(15) COLLATE utf8_spanish_ci DEFAULT NULL,
-  `ROL` int(11) NOT NULL
+CREATE TABLE `log2` (
+  `ID` int(11) NOT NULL,
+  `CEDULA` int(10) NOT NULL,
+  `NOMBRE` varchar(30) COLLATE utf8_spanish_ci DEFAULT NULL,
+  `CONTRASENA` varchar(20) COLLATE utf8_spanish_ci NOT NULL,
+  `ROL_ID` int(11) DEFAULT NULL,
+  `DEPARTAMENTO_ID` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 --
--- Volcado de datos para la tabla `log`
+-- Volcado de datos para la tabla `log2`
 --
 
-INSERT INTO `log` (`CEDULA`, `NOMBRE`, `CONTRASENA`, `ROL`) VALUES
-(890306372, 'ELECTROJAPONESA S.A', '7ecn0l061a', 1),
-(1112495044, 'JEINER ANDREY GRIJALBA', '7ecn0l061a', 1);
+INSERT INTO `log2` (`ID`, `CEDULA`, `NOMBRE`, `CONTRASENA`, `ROL_ID`, `DEPARTAMENTO_ID`) VALUES
+(1, 1112495044, 'JEINER ANDREY GRIJALBA', '7ecn0l061a', 1, 1);
 
 -- --------------------------------------------------------
 
@@ -261,12 +262,12 @@ ALTER TABLE `discos_duros`
   ADD KEY `ACTA_ID` (`ACTA_ID`);
 
 --
--- Indices de la tabla `log`
+-- Indices de la tabla `log2`
 --
-ALTER TABLE `log`
-  ADD PRIMARY KEY (`CEDULA`),
-  ADD UNIQUE KEY `CEDULA` (`CEDULA`),
-  ADD KEY `ROL` (`ROL`);
+ALTER TABLE `log2`
+  ADD PRIMARY KEY (`ID`),
+  ADD KEY `ROL_ID` (`ROL_ID`),
+  ADD KEY `DEPARTAMENTO_ID` (`DEPARTAMENTO_ID`);
 
 --
 -- Indices de la tabla `modelos_cel`
@@ -337,6 +338,12 @@ ALTER TABLE `discos_duros`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT de la tabla `log2`
+--
+ALTER TABLE `log2`
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
 -- AUTO_INCREMENT de la tabla `modelos_cel`
 --
 ALTER TABLE `modelos_cel`
@@ -405,10 +412,17 @@ ALTER TABLE `discos_duros`
   ADD CONSTRAINT `discos_duros_ibfk_2` FOREIGN KEY (`ACTA_ID`) REFERENCES `actas` (`ID`);
 
 --
--- Filtros para la tabla `log`
+-- Filtros para la tabla `log2`
 --
-ALTER TABLE `log`
-  ADD CONSTRAINT `log_ibfk_1` FOREIGN KEY (`ROL`) REFERENCES `roles` (`ID`);
+ALTER TABLE `log2`
+  ADD CONSTRAINT `log2_ibfk_1` FOREIGN KEY (`DEPARTAMENTO_ID`) REFERENCES `departamentos` (`ID`),
+  ADD CONSTRAINT `log2_ibfk_2` FOREIGN KEY (`ROL_ID`) REFERENCES `roles` (`ID`);
+
+--
+-- Filtros para la tabla `modelos_disc_duro`
+--
+ALTER TABLE `modelos_disc_duro`
+  ADD CONSTRAINT `modelos_disc_duro_ibfk_1` FOREIGN KEY (`ID`) REFERENCES `departamentos` (`ID`);
 
 --
 -- Filtros para la tabla `pantallas`

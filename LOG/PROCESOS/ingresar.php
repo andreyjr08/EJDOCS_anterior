@@ -11,7 +11,7 @@
                 $code = json_encode($result);
                 $decode=json_decode($code, true);
                 $nombre= $decode['NOMBRE'];
-                $rol= $decode['ROL'];
+                $rol= $decode['ROL_ID'];
                 session_start();
                 $usuario= $request['usuario'];
                 $_SESSION['usuario'] =$nombre;

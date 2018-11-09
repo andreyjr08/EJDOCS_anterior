@@ -10,7 +10,7 @@ class funcionLog{
     }
     public function log($usuario,$contra){
         $pdo = $this->pdo;
-        $sql = "SELECT * FROM log WHERE CEDULA = '$usuario' AND CONTRASENA= '$contra'";
+        $sql = "SELECT l.CEDULA, l.NOMBRE, l.CONTRASENA,l.ROL_ID, d.NOMBRE AS NOMBRE_DEPAR FROM log2 l INNER JOIN  departamentos d ON l.CEDULA = '$usuario' AND l.CONTRASENA = '$contra'";
         $prepared = $pdo->prepare($sql);
         $resultQuery = $prepared->execute();
         $result = $prepared->fetch(\PDO::FETCH_ASSOC);

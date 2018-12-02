@@ -31,7 +31,9 @@ class funciones{
         $result = $this->Insertar();
         return $result;
     }
-    //--------------CONSULTA PARA BUSCADOR DE USUARIO
+    //--------------CONSULTA PARA LISTAS DESPLEGABLES------------
+
+    //--------------LISTA USUARIOS
         public function usuarios()
         {
         $pdo = $this->pdo;
@@ -40,14 +42,20 @@ class funciones{
         $queryResult = $query->fetchAll(\PDO::FETCH_ASSOC);
         return $queryResult;
         }
-        public function departamento()
-        {
+    //--------------LISTA DEPARTAMENTOS
+        public function departamentos(){
         $pdo = $this->pdo;
-        $sql = "SELECT NOMBRE FROM departamentos WHERE ";
+        $sql = "SELECT NOMBRE FROM departamentos ORDER BY NOMBRE DESC";
         $query = $pdo->query($sql);
         $queryResult = $query->fetchAll(\PDO::FETCH_ASSOC);
         return $queryResult;
-        }
+ echo "hola mundo";
+        $departamento= $queryResult;
+                session_start();
+                $departa_total= $request['departa_total'];
+                $_SESSION['departa_total']=$departamento;
+}
+
 
 
     //--------------FIN DE LA CONSULTA

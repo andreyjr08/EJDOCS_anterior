@@ -11,10 +11,14 @@
                 $code = json_encode($result);
                 $decode=json_decode($code, true);
                 $nombre= $decode['NOMBRE'];
+                $departa= $decode['NOMBRE_DEPAR'];
                 $rol= $decode['ROL_ID'];
                 session_start();
                 $usuario= $request['usuario'];
                 $_SESSION['usuario'] =$nombre;
+                $departamento= $request['departamento'];
+                $_SESSION['departamento'] =$departa;
+                
                 if ($rol==1) {
                     $resu["res"] = "si";
                     $resu["msj"] = header('Location: ../../aplicativo/index.php');

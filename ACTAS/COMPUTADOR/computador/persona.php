@@ -11,7 +11,7 @@ session_start();
 
 ?>
 
-<script type="text/javascript" language="javascript" src="js/validacionP.js" ></script>
+<script type="text/javascript" language="javascript" src="../ACTAS/COMPUTADOR/js/validacionP.js" ></script>
 <div class="box-header">
 </div>
 <form id="frmDatosP" name="frmDatosP" method="post" action="procesos/insertarP.php">
@@ -30,7 +30,7 @@ session_start();
 						<div class="input-group mb-3">
 						  <select class="form-control dimension" id="inputGroupSelect01">
 						  	<option selected>Choose...</option>
-							<option value="<?php foreach($result as $usuarios)echo $usuarios['CEDULA']?>"><?php foreach($result as $usuarios)echo $usuarios['NOMBRES']." ".$usuarios['APELLIDOS']?></option>
+							<option id="para" value="<?php foreach($result as $usuarios)echo $usuarios['CEDULA']?>"><?php foreach($result as $usuarios)echo $usuarios['NOMBRES']." ".$usuarios['APELLIDOS']?></option>
 						  </select>
 						</div>
 				</div>
@@ -102,7 +102,7 @@ session_start();
 				<div class="col-lg-12">
 					<label>DE</label>
 					<div class="input-group mb-2">
-  						<input type="text" name="de" id="de" value="<?php  if(isset($_SESSION['departa_total'])) echo $_SESSION['departa_total'];?>" class="form-control" placeholder="De" aria-label="Username" aria-describedby="basic-addon1">
+  						<input type="text" name="de" id="de" value="<?php  if(isset($_SESSION['departamento'])) echo $_SESSION['departamento'];?>" class="form-control" placeholder="De" aria-label="Username" aria-describedby="basic-addon1">
 					</div>
 				</div>
 				<div class="col-lg-12">

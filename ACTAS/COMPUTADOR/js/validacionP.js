@@ -2,31 +2,30 @@ $(document).ready(function(e) {
 	
 	$("#btnEnviarP").click(function() {
 		
-		if( $("#para").val().length == 0 ) {
+		/*if( $("#para").val().equals("Seleccionar") == true ) {
 			alert("Debes ingresar quien recibe");
 			 document.frmDatosP.para.focus();
-		} else if( $("#cedula").val().length == 0 ) {
-			alert("Debes ingresar un documento");
-			document.frmDatosP.cedula.focus();
-
-		} else if( $("#de").val().length == 0 ) {
+			 return false;
+		}*/
+		
+		 if( $("#de").val().length == 0 ) {
 			alert("Debes ingresar quien envia la acta");
 			document.frmDatosP.de.focus();
-
-		} else if( $("#asunto").val().length == 0 ) {
+			return false;
+		}if( $("#asunto").val().length == 0 ) {
 			alert("Debes ingresar el asunto de la acta");
 			document.frmDatosP.asunto.focus();
-			
-		}else {
+			return false;
+		} else {
 			$.ajax({
-			  url: "procesos/insertarP.php",
+			  url: "../ACTAS/COMPUTADOR/procesos/insertarP.php",
 			  type: 'post',
 			  data: $("#frmDatosP").serialize(),
 			  dataType: 'json',
 			  success: function(dataType) {
 				if (dataType.res == "si") {
 					alert(dataType.msj);
-					  $("#cargaDeDatos").load('computador/lista.php');
+					  $("#cargaDeDatos").load('../ACTAS/COMPUTADOR/computador/computador.php');
 				} else {
 					alert(dataType.msj);
 				}

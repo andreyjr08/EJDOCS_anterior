@@ -9,9 +9,10 @@
         $procesador = $_POST['procesador'];
         $memoria_ram = $_POST['memoria_ram'];
         $serial_cargador = $_POST['serial_cargador'];
+        $acta = $_POST['acta'];
         $ins = new funciones();
-        $result = $ins->addComp($computador, $activo_fijo, $serial, $procesador, $memoria_ram, 
-            $serial_cargador);
+        $result = $ins->anadirComputador($serial, $activo_fijo, $procesador, $memoria_ram, $serial_cargador, 
+            $computador,$acta);
         if($result) {
               	$resu["res"] = "si";
             	$resu["msj"] = "Registro insertado";

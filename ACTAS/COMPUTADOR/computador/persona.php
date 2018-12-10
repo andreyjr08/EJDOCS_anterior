@@ -1,11 +1,8 @@
 <?php
 use clases_pdo\funciones;
 require '../clases/funciones.php';
-//require '../../../LOG/funcion_log.php';
 $usuarios = new funciones();
 $result = $usuarios ->usuarios();
-/*$departamento = new funcionLog();
-$resultDepart = $departamento ->log();*/
 
 session_start();
 
@@ -13,9 +10,12 @@ session_start();
 
 <script type="text/javascript" language="javascript" src="../ACTAS/COMPUTADOR/js/validacionP.js" ></script>
 <div class="box-header">
+   <div class="pull-right box-tools">
+       <button class="btn btn-danger btn-sm btncerrar_nueva_acta_computador2" data-toggle="tooltip" title="Cerrar nueva acta"><i class="fas fa-times"></i></button>
+   </div>
 </div>
-<form id="frmDatosP" name="frmDatosP" method="post" action="procesos/insertarP.php">
-	<dir class="col-ms-12" id="cargaDeDatos">
+<form id="frmDatosP" name="frmDatosP" method="post" action="../ACTAS/COMPUTADOR/procesos/insertarP.php">
+	<div class="col-ms-12" id="cargaDeDatos">
 		<div class="jumbotron">
 			<div class="row">
 				<div class="col-lg-12">
@@ -28,16 +28,19 @@ session_start();
 				<div class="col-lg-11">
 					<label>PARA</label>
 						<div class="input-group mb-3">
-						  <select class="form-control dimension" id="inputGroupSelect01">
-						  	<option selected>Choose...</option>
-							<option id="para" value="<?php foreach($result as $usuarios)echo $usuarios['CEDULA']?>"><?php foreach($result as $usuarios)echo $usuarios['NOMBRES']." ".$usuarios['APELLIDOS']?></option>
+						  <select class="form-control dimension" id="inputGroupSelect01" name="para" id="para">
+						  	<option selected>Seleccionar</option>
+						  	<?php foreach($result as $usuarios){ ?>
+                    			<option value="<?php echo $usuarios['CEDULA']; ?>"><?php echo $usuarios['NOMBRES']." ".$usuarios['APELLIDOS']; ?></option> 
+    						<?php } ?>
 						  </select>
 						</div>
 				</div>
 				<!--<div class="col-lg-1 h my-auto btn btn-primary modal">
 					
 				</div>-->
-				<!-- Button to Open the Modal -->
+				<!---------INICIO DE MODAL -->
+				<!---------BOTON DE MODAL-->
 <button type="button" class="btn btn-primary col-lg-1 h my-auto" data-toggle="modal" data-target="#myModal">
   <i class="fas fa-user-plus fa-1x"></i>
 </button>
@@ -98,7 +101,7 @@ session_start();
     </div>
   </div>
 </div> 	
-<!-- end modal-->
+			<!----------- FIN DE MODAL-->
 				<div class="col-lg-12">
 					<label>DE</label>
 					<div class="input-group mb-2">
@@ -112,19 +115,10 @@ session_start();
 					</div>
 					
 				</div>
-				<!--<div class="col-ms-12">
-					<div class="input-group mb-3">
-  						<input type="text" name="computadorPK" id="computadorPK" value="<?php foreach($result as $usuarios)echo $usuarios['cp']?>" class="form-control" placeholder="Computador" aria-label="Username" aria-describedby="basic-addon1"  readonly="readonly" >
-					</div>
-				</div>
-				<div class="col-ms-12">
-					<div class="input-group mb-3">
-  						<input type="text" name="celularPK" id="celularPK" value="<?php foreach($result2 as $usuarios)echo $usuarios['cl']?>"" class="form-control" placeholder="Celular" aria-label="Username" aria-describedby="basic-addon1"  readonly="readonly">
-					</div>
-				</div>-->
+				<input type="text" name="creador" value="<?php  if(isset($_SESSION['id'])) echo $_SESSION['id'];?>">
 
 				<div class="col-lg-12">
-					<input type="submit" id="btnEnviarP" name="">
+					<input  type="submit" id="btnEnviarP" name="">
 					<!--<a class="btn btn-primary fas fa-check-square fa-3x btn-responsive" 
 					type="submit" id="btnEnviarP"></a>-->
 				</div>

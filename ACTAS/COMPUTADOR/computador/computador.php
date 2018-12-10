@@ -1,26 +1,38 @@
+<?php
+use clases_pdo\funciones;
+require '../clases/funciones.php';
+$computador = new funciones();
+$result = $computador ->marcas_pc();
+$result2 = $computador ->select_acta();
 
-<script type="text/javascript" language="javascript" src="js/validacion.js" ></script>
+session_start();
+
+?>
+<script type="text/javascript" language="javascript" src="../ACTAS/COMPUTADOR/js/validacion.js" ></script>
+
 <div class="panel-body">
 	
-<div class="box-header">
-   <div class="pull-right box-tools">
-       <button class="btn btn-danger btn-sm btncerrar_nueva_acta_computador2" data-toggle="tooltip" title="Cerrar nueva acta"><i class="fas fa-times"></i></button>
-   </div>
-</div>
-
-<form class="form-horizontal" id="frmDatos" name="frmDatos" method="post" action="procesos/insertarC.php">
+<form class="form-horizontal" id="frmDatos" name="frmDatos" method="post" action="../ACTAS/COMPUTADOR/procesos/insertarC.php">
 	<div id="cargaDeDatos">
 
-		<div class="col-ms-12">
-	
 		<div class="jumbotron">
-				<div class="col-ms-12">
-					<label>COMPUTADOR</label>
+			<div class="col-ms-12">
+					<label>NUMERO</label>
 					<div class="input-group mb-3">
-  						<input type="text" name="computador" id="computador" class="form-control" placeholder="Computador" aria-label="Username" aria-describedby="basic-addon1">
+  						<input type="text" name="acta" id="acta" class="form-control" aria-label="Username" aria-describedby="basic-addon1" value="<?php foreach($result2 as $acta){echo $acta['acta'];}?>">
 					</div>
+			</div>
+			<div class="col-lg-12">
+					<label>COPUTADOR</label>
+						<div class="input-group mb-3">
+						  <select class="form-control dimension" id="inputGroupSelect01" name="computador" id="computador">
+						  	<option selected>Seleccionar</option>
+						  	<?php foreach($result as $computador){ ?>
+                    			<option value="<?php echo $computador['ID']; ?>"><?php echo $computador['MARCA']; ?></option> 
+    						<?php } ?>
+						  </select>
+						</div>
 				</div>
-			
 		
 				<div class="col-ms-12">
 					<label>ACTIVO FIJO</label>
@@ -52,8 +64,6 @@
   						<input type="text" name="memoria_ram" id="memoria_ram" class="form-control" placeholder="Memoria Ram" aria-label="Username" aria-describedby="basic-addon1">
 					</div>
 				</div>
-			
-			
 				<div class="col-ms-12">
 					<label>SERIAL CARGADOR</label>
 					<div class="input-group mb-3">
@@ -61,13 +71,16 @@
 					</div>
 				</div>
 			
-		
-				<div class="col-ms-12">
-					<a href="#" class="btn btn-primary fas fa-angle-double-right fa-2x" type="submit" id="btnEnviar" value="SIGUIENTE"></a>
+				<!--<div class="col-ms-12">
+					<a href="../ACTAS/COMPUTADOR/procesos/prueba.php" class="btn btn-primary fas fa-angle-double-right fa-2x" type="submit" id="btnEnviar" value="SIGUIENTE"></a>
+				</div>-->
+				<div class="col-lg-12">
+					<input  type="submit" id="btnEnviar" name="">
+					<!--<a class="btn btn-primary fas fa-check-square fa-3x btn-responsive" 
+					type="submit" id="btnEnviarP"></a>-->
 				</div>		
 		</div>		
 		
-		</div>
 	</div>
 	
 </form>

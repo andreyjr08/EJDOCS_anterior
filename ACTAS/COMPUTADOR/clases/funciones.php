@@ -5,11 +5,9 @@ class funciones{
 //---------persona---------------
     private $id;
     private $para;
-    private $cedula;
+    private $creador;
     private $de;
     private $asunto;
-    private $computadorPK;
-    private $celularPK;
 //---------computador---------------
     private $computador;
     private $activo_fijo;
@@ -17,20 +15,33 @@ class funciones{
     private $procesador;
     private $memoria_ram;
     private $serial_cargador;
+    private $acta;
 
      public function __construct(){
         $this->pdo = new config();
     }
-        public function addUser($para, $cedula,$de, $asunto, $computadorPK, $celularPK){
+        public function addUser($para,$de, $asunto, $creador){
         $this->PARA = $para;
-        $this->CEDULA = $cedula;
         $this->DE= $de; 
         $this->ASUNTO = $asunto;
-        $this->COMPUTADOR_ID = $computadorPK;
-        $this->CELULAR_ID = $celularPK;
+        $this->CREADO_POR = $creador;
         $result = $this->Insertar();
         return $result;
     }
+
+         private function Insertar(){
+         $resu = array();
+        $pdo = $this->pdo;
+        $sql = "INSERT INTO actas (USUARIO_ID, DE, ASUNTO, CREADO_POR) VALUES (:para, :de, :asunto, :creador)";
+        $query = $pdo->prepare($sql);
+        $result = $query->execute([//$result = $query->execute([
+            'para' => $this->PARA,
+            'de' => $this->DE,
+            'asunto' => $this->ASUNTO,
+            'creador' => $this->CREADO_POR
+            ]);
+            return $result;
+        }
     //--------------CONSULTA PARA LISTAS DESPLEGABLES------------
 
     //--------------LISTA USUARIOS
@@ -38,6 +49,14 @@ class funciones{
         {
         $pdo = $this->pdo;
         $sql = "SELECT * FROM usuarios ORDER BY NOMBRES DESC";
+        $query = $pdo->query($sql);
+        $queryResult = $query->fetchAll(\PDO::FETCH_ASSOC);
+        return $queryResult;
+        }
+        public function marcas_pc()
+        {
+        $pdo = $this->pdo;
+        $sql = "SELECT * FROM marcas_pc ORDER BY MARCA DESC";
         $query = $pdo->query($sql);
         $queryResult = $query->fetchAll(\PDO::FETCH_ASSOC);
         return $queryResult;
@@ -59,37 +78,24 @@ class funciones{
 
 
     //--------------FIN DE LA CONSULTA
-     private function Insertar(){
-         $resu = array();
-        $pdo = $this->pdo;
-        $sql = "INSERT INTO actas (PARA, CEDULA, DE, ASUNTO, COMPUTADOR_ID,CELULAR_ID) VALUES (:para, :cedula, :de, :asunto, :computadorPK, :celularPK)";
-        $query = $pdo->prepare($sql);
-        $result = $query->execute([//$result = $query->execute([
-            'para' => $this->PARA,
-            'cedula' => $this->CEDULA,
-            'de' => $this->DE,
-            'asunto' => $this->ASUNTO,
-            'computadorPK' => $this->COMPUTADOR_ID,
-            'celularPK' => $this->CELULAR_ID,
-            ]);
-            return $result;
-        }
         //recopilacion de datos para ejecutar la insercion de un nuevo computador
-        public function añadirComputador($computador, $activo_fijo,$serial, $procesador, $memoria_ram, $serial_cargador){
-        $this->COMPUTADOR = $computador;
+        public function anadirComputador($serial, $activo_fijo, $procesador, $memoria_ram, $serial_cargador, 
+            $computador,$acta){
+        $this->SERIAL= $serial;
         $this->ACTIVO_FIJO = $activo_fijo;
-        $this->SERIAL= $serial; 
         $this->PROCESADOR = $procesador;
         $this->MEMORIA_RAM = $memoria_ram;
         $this->SERIAL_CARGADOR = $serial_cargador;
-        $result = $this->InsertarC();
+        $this->MODELO_ID = $computador;
+        $this->ACTA_ID = $acta;
+        $result = $this->InsertarComputador();
         return $result;
     }
     //consulta sql para insertar nuevo computador
      private function InsertarComputador(){
         $resu = array();
         $pdo = $this->pdo;
-        $sql = "INSERT INTO computador (SERIAL, ACTIVO_FIJO, PROCESADOR, MEMORIA_RAM, SERIAL_CARGADOR,MODELO_ID,ACTA_ID) VALUES (:serial, :activo_fijo, :procesador, :memoria_ram, :serial_cargador,modelo_id,acta_id)";
+        $sql = "INSERT INTO computadores (SERIAL, ACTIVO_FIJO, PROCESADOR, MEMORIA_RAM, SERIAL_CARGADOR,MODELO_ID,ACTA_ID) VALUES (:serial, :activo_fijo, :procesador, :memoria_ram, :serial_cargador,:computador,:acta)";
         $query = $pdo->prepare($sql);
         $result = $query->execute([//$result = $query->execute([
             'serial' => $this->SERIAL,
@@ -97,24 +103,28 @@ class funciones{
             'procesador' => $this->PROCESADOR,
             'memoria_ram' => $this->MEMORIA_RAM,
             'serial_cargador' => $this->SERIAL_CARGADOR,
-            'modelo_id' => $this->MODELO_ID,
-            'acta_id' => $this->ACTA_ID,
+            'computador' => $this->MODELO_ID,
+            'acta' => $this->ACTA_ID,
             ]);
             return $result;
         }
         public function select_persons(){
         $pdo = $this->pdo;
-        $sql = "SELECT A.ID,A.USUARIO_ID, A.CREADO_POR FROM actas A INNER JOIN computadores CO ON CO.ACTA_ID = A.ID";
+        $sql = "SELECT a.ID,u.NOMBRES,u.APELLIDOS ,a.DE,a.ASUNTO,m.marca FROM computadores c INNER JOIN actas a INNER JOIN marcas_pc m  INNER JOIN usuarios u ON c.ACTA_ID = a.ID AND c.MARCA_ID = m.ID AND a.USUARIO_ID = u.CEDULA ";
         $query = $pdo->query($sql);
         $queryResult = $query->fetchAll(\PDO::FETCH_ASSOC);
         return $queryResult;
     }
-    public function select_comp(){
+    //-----------ULTIMA ACTA GENERADA--------
+    
+
+    public function select_acta(){
         $pdo = $this->pdo;
-        $sql = "SELECT MAX(ID) cp, COMPUTADOR FROM computador";
+        $sql = "SELECT MAX(ID) AS acta FROM actas";
         $query = $pdo->query($sql);
         $queryResult = $query->fetchAll(\PDO::FETCH_ASSOC);
         return $queryResult;
+        
     }
     public function select_cel(){
         $pdo = $this->pdo;
@@ -125,7 +135,7 @@ class funciones{
     }
     public function select_All($id){
         $pdo = $this->pdo;
-        $sql = "SELECT MAX(A.ID) A, MAX(C.ID) C, A.PARA, A.CEDULA,A.DE,A.ASUNTO,C.COMPUTADOR, C.ACTIVO_FIJO,C.SERIAL,C.PROCESADOR,C.MEMORIA_RAM,C.SERIAL_CARGADOR FROM acta A INNER JOIN computador C ON A.COMPUTADOR_ID = $id";
+        $sql = "SELECT a.ID,u.NOMBRES,a.USUARIO_ID,u.APELLIDOS ,a.DE,a.ASUNTO,m.marca ,c.SERIAL, c.ACTIVO_FIJO,c.PROCESADOR,c.MEMORIA_RAM,c.SERIAL_CARGADOR FROM computadores c INNER JOIN actas a INNER JOIN marcas_pc m  INNER JOIN usuarios u ON c.ACTA_ID = a.ID AND c.MARCA_ID = m.ID AND  a.USUARIO_ID = u.CEDULA AND a.ID = $id";
         $prepared = $pdo->prepare($sql);
         $resultQuery = $prepared->execute();
         $result = $prepared->fetch(\PDO::FETCH_ASSOC);
@@ -142,7 +152,7 @@ class funciones{
     }
      public function select_person($id){
         $pdo = $this->pdo;
-        $sql = "SELECT * FROM computador WHERE id = :id";
+        $sql = "SELECT * FROM computadores WHERE id = :id";
         $prepared = $pdo->prepare($sql);
         $resultQuery = $prepared->execute([
             'id' => $id

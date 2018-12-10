@@ -1,36 +1,41 @@
 $(document).ready(function(e) {
-	
+	alert("Debes ingresar la marca de un computador");
 	$("#btnEnviar").click(function() {
-		
+		alert("Debes ingresar la marca de un computador");
 		if( $("#computador").val().length == 0 ) {
 			alert("Debes ingresar la marca de un computador");
 			 document.frmDatos.computador.focus();
-		} else if( $("#activo_fijo").val().length == 0 ) {
+			 return false;
+		} if( $("#activo_fijo").val().length == 0 ) {
 			alert("Debes ingresar un activo fijo");
 			document.frmDatos.activo_fijo.focus();
-		} else if( $("#serial").val().length == 0 ) {
+			return false;
+		}  if( $("#serial").val().length == 0 ) {
 			alert("Debes ingresar el serial del computador");
 			document.frmDatos.serial.focus();
-		} else if( $("#procesador").val().length == 0 ) {
+			return false;
+		}  if( $("#procesador").val().length == 0 ) {
 			alert("Debes ingresar el tipo de procesador");
 			document.frmDatos.procesador.focus();
-		} else if( $("#memoria_ram").val().length == 0 ) {
+			return false;
+		}  if( $("#memoria_ram").val().length == 0 ) {
 			alert("Debes ingresar la cantidad de memoria ram");
 			document.frmDatos.memoria_ram.focus();
-		} else if( $("#serial_cargador").val().length == 0 ) {
+			return false;
+		}  if( $("#serial_cargador").val().length == 0 ) {
 			alert("Debes ingresar el serial del cargador");
 			document.frmDatos.serial_cargador.focus();
+			return false;
 		}else {
-		
 			$.ajax({
-			  url: "procesos/insertarC.php",
+			  url: "../ACTAS/COMPUTADOR/procesos/insertarC.php",
 			  type: 'post',
 			  data: $("#frmDatos").serialize(),
 			  dataType: 'json',
 			  success: function(dataType) {
 				if (dataType.res == "si") {
 					alert(dataType.msj);
-					  $("#cargaDeDatos").load('computador/persona.php');
+					  $("#cargaDeDatos").load('../ACTAS/COMPUTADOR/computador/lista.php');
 				} else {
 					alert(dataType.msj);
 				}

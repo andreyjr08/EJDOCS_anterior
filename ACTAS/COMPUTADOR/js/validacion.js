@@ -1,7 +1,7 @@
 $(document).ready(function(e) {
-	alert("Debes ingresar la marca de un computador");
+	//alert("Debes ingresar la marca de un computador");
 	$("#btnEnviar").click(function() {
-		alert("Debes ingresar la marca de un computador");
+		//alert("Debes ingresar la marca de un computador");
 		if( $("#computador").val().length == 0 ) {
 			alert("Debes ingresar la marca de un computador");
 			 document.frmDatos.computador.focus();

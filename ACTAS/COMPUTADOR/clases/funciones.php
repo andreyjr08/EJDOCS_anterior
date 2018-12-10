@@ -79,14 +79,13 @@ class funciones{
 
     //--------------FIN DE LA CONSULTA
         //recopilacion de datos para ejecutar la insercion de un nuevo computador
-        public function anadirComputador($serial, $activo_fijo, $procesador, $memoria_ram, $serial_cargador, 
-            $computador,$acta){
+        public function anadirComputador($serial, $activo_fijo, $procesador, $memoria_ram, $serial_cargador,$computador,$acta){
         $this->SERIAL= $serial;
         $this->ACTIVO_FIJO = $activo_fijo;
         $this->PROCESADOR = $procesador;
         $this->MEMORIA_RAM = $memoria_ram;
         $this->SERIAL_CARGADOR = $serial_cargador;
-        $this->MODELO_ID = $computador;
+        $this->MARCA_ID = $computador;
         $this->ACTA_ID = $acta;
         $result = $this->InsertarComputador();
         return $result;
@@ -95,7 +94,7 @@ class funciones{
      private function InsertarComputador(){
         $resu = array();
         $pdo = $this->pdo;
-        $sql = "INSERT INTO computadores (SERIAL, ACTIVO_FIJO, PROCESADOR, MEMORIA_RAM, SERIAL_CARGADOR,MODELO_ID,ACTA_ID) VALUES (:serial, :activo_fijo, :procesador, :memoria_ram, :serial_cargador,:computador,:acta)";
+        $sql = "INSERT INTO computadores (SERIAL, ACTIVO_FIJO, PROCESADOR, MEMORIA_RAM, SERIAL_CARGADOR,MARCA_ID,ACTA_ID) VALUES (:serial, :activo_fijo, :procesador, :memoria_ram, :serial_cargador,:computador,:acta)";
         $query = $pdo->prepare($sql);
         $result = $query->execute([//$result = $query->execute([
             'serial' => $this->SERIAL,
@@ -103,7 +102,7 @@ class funciones{
             'procesador' => $this->PROCESADOR,
             'memoria_ram' => $this->MEMORIA_RAM,
             'serial_cargador' => $this->SERIAL_CARGADOR,
-            'computador' => $this->MODELO_ID,
+            'computador' => $this->MARCA_ID,
             'acta' => $this->ACTA_ID,
             ]);
             return $result;

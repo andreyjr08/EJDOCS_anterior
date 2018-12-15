@@ -11,11 +11,11 @@ $(document).ready(function(e) {
 		 if( $("#de").val().length == 0 ) {
 			alert("Debes ingresar quien envia la acta");
 			document.frmDatosP.de.focus();
-			return false;
-		}if( $("#asunto").val().length == 0 ) {
+			if( $("#asunto").val().length == 0 ) {
 			alert("Debes ingresar el asunto de la acta");
 			document.frmDatosP.asunto.focus();
 			return false;
+		}return false;
 		} else {
 			$.ajax({
 			  url: "../ACTAS/COMPUTADOR/procesos/insertarP.php",
@@ -31,7 +31,7 @@ $(document).ready(function(e) {
 				}
 			  },
 			  error: function() {
-				alert( "Registro no guardadooooo" );
+				alert( "Los datos ingresados son incorrectos" );
 			  }
 			});
 		}

@@ -1,15 +1,17 @@
 $(document).ready(function(e) {
 	//alert("Debes ingresar la marca de un computador");
 	$("#btnEnviar").click(function() {
-		//alert("Debes ingresar la marca de un computador");
-		if( $("#computador").val().length == 0 ) {
+		alert("Debes ingresar la marca de un computador");
+		/*if( $("#computador").val().length == 0 ) {
 			alert("Debes ingresar la marca de un computador");
 			 document.frmDatos.computador.focus();
 			 return false;
-		} if( $("#activo_fijo").val().length == 0 ) {
+		}*/
+
+		 if( $("#activo_fijo").val().length == 0 ) {
 			alert("Debes ingresar un activo fijo");
 			document.frmDatos.activo_fijo.focus();
-			return false;
+		return false;
 		}  if( $("#serial").val().length == 0 ) {
 			alert("Debes ingresar el serial del computador");
 			document.frmDatos.serial.focus();
@@ -41,7 +43,7 @@ $(document).ready(function(e) {
 				}
 			  },
 			  error: function() {
-				alert( "Registro no guardado" );
+				alert( "Los datos ingresados son incorrectos" );
 			  }
 			});
 		}

@@ -3,6 +3,7 @@ use clases_pdo\funciones;
 require '../clases/funciones.php';
 $usuarios = new funciones();
 $result = $usuarios ->usuarios();
+$result2 = $usuarios ->departamentos();
 
 session_start();
 
@@ -39,69 +40,13 @@ session_start();
 				<!--<div class="col-lg-1 h my-auto btn btn-primary modal">
 					
 				</div>-->
-				<!---------INICIO DE MODAL -->
+				
 				<!---------BOTON DE MODAL-->
 <button type="button" class="btn btn-primary col-lg-1 h my-auto" data-toggle="modal" data-target="#myModal">
   <i class="fas fa-user-plus fa-1x"></i>
 </button>
 
-<!-- The Modal -->
-<div class="modal" id="myModal">
-  <div class="modal-dialog">
-    <div class="modal-content">
 
-      <!-- Modal Header -->
-      <div class="modal-header">
-        <h4 class="modal-title">Crear Nuevo Usuario</h4>
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-      </div>
-
-      <!-- Modal body -->
-      <div class="modal-body">
-        <div class="col-lg-12">
-			<label>#CEDULA</label>
-				<div class="input-group mb-3">
-  					<input type="number" name="cedula" id="cedula" class="form-control" placeholder="Cedula" aria-label="Username" aria-describedby="basic-addon1">
-				</div>
-		</div>
-      </div>
-      <div class="modal-body">
-        <div class="col-lg-12">
-			<label>NOMBRES</label>
-				<div class="input-group mb-3">
-  					<input type="number" name="cedula" id="cedula" class="form-control" placeholder="Cedula" aria-label="Username" aria-describedby="basic-addon1">
-				</div>
-		</div>
-      </div>
-      <div class="modal-body">
-        <div class="col-lg-12">
-			<label>APELLIDOS</label>
-				<div class="input-group mb-3">
-  					<input type="number" name="cedula" id="cedula" class="form-control" placeholder="Cedula" aria-label="Username" aria-describedby="basic-addon1">
-				</div>
-		</div>
-      </div>
-      <div class="modal-body">
-        <div class="col-lg-12">
-			<label>DEPARTAMENTO</label>
-				<div class="input-group mb-3">
-						  <select class="form-control dimension" id="inputGroupSelect01">
-						  	<option selected>Choose...</option>
-							<option value="<?php foreach($result as $usuarios)echo $usuarios['CEDULA']?>"><?php foreach($result as $usuarios)echo $usuarios['NOMBRES']." ".$usuarios['APELLIDOS']?></option>
-						  </select>
-						</div>
-		</div>
-      </div>
-
-      <!-- Modal footer -->
-      <div class="modal-footer">
-        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-      </div>
-
-    </div>
-  </div>
-</div> 	
-			<!----------- FIN DE MODAL-->
 				<div class="col-lg-12">
 					<label>DE</label>
 					<div class="input-group mb-2">
@@ -125,5 +70,62 @@ session_start();
 		</div>
 		</div>
 		</dir>
-			</form>
+	</form>
+<form id="frmModal" name="frmModal" method="post" action="../ACTAS/COMPUTADOR/procesos/ingreso_usuario.php">
+	<!---------INICIO DE MODAL -->
+<!-- The Modal -->
+<div class="modal" id="myModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">Crear Nuevo Usuario</h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+      <!-- Modal body -->
+      <div class="modal-body">
+        <div class="col-lg-12">
+			<label>#CEDULA</label>
+				<div class="input-group mb-3">
+  					<input type="number" name="cedula" id="cedula" class="form-control" placeholder="Cedula" aria-label="Username" aria-describedby="basic-addon1">
+				</div>
+		</div>
+      </div>
+      <div class="modal-body">
+        <div class="col-lg-12">
+			<label>NOMBRES</label>
+				<div class="input-group mb-3">
+  					<input type="text" name="nombres" id="nombres" class="form-control" placeholder="nombres" aria-label="Username" aria-describedby="basic-addon1">
+				</div>
+		</div>
+      </div>
+      <div class="modal-body">
+        <div class="col-lg-12">
+			<label>APELLIDOS</label>
+				<div class="input-group mb-3">
+  					<input type="text" name="apellidos" id="apellidos" class="form-control" placeholder="Apellidos" aria-label="Username" aria-describedby="basic-addon1">
+				</div>
+		</div>
+      </div>
+      <div class="modal-body">
+        <div class="col-lg-12">
+			<label>DEPARTAMENTO</label>
+				<div class="input-group mb-3">
+						  <select class="form-control dimension" id="inputGroupSelect01">
+						  	<option selected>Seleccionar</option>
+							<option value="<?php foreach($result2 as $departamento)echo $departamento['ID']?>"><?php foreach($result2 as $usuarios)echo $departamento['NOMBRE']?></option>
+						  </select>
+						</div>
+		</div>
+      </div>
+      <!-- Modal footer -->
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+      </div>
+
+    </div>
+  </div>
+</div> 	
+			<!-----------FIN DE MODAL-->
+</form>
 		</div>

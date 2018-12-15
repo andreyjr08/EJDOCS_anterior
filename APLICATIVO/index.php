@@ -9,6 +9,9 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
     
     <link rel="stylesheet"href="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js">
+    
+
+
     <script type="text/javascript" language="javascript" src="js/jquery-1.11.2.js" ></script>
     <script type="text/javascript" language="javascript" src="js/ajax_lista.js" ></script>
     <link rel="stylesheet" href="../CSS/bootstrap/font-awesome.min.css">

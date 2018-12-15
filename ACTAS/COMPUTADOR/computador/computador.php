@@ -9,12 +9,9 @@ session_start();
 
 ?>
 <script type="text/javascript" language="javascript" src="../ACTAS/COMPUTADOR/js/validacion.js" ></script>
-
 <div class="panel-body">
-	
 <form class="form-horizontal" id="frmDatos" name="frmDatos" method="post" action="../ACTAS/COMPUTADOR/procesos/insertarC.php">
 	<div id="cargaDeDatos">
-
 		<div class="jumbotron">
 			<div class="col-ms-12">
 					<label>NUMERO</label>
@@ -23,7 +20,7 @@ session_start();
 					</div>
 			</div>
 			<div class="col-lg-12">
-					<label>COPUTADOR</label>
+					<label>COMPUTADOR</label>
 						<div class="input-group mb-3">
 						  <select class="form-control dimension" id="inputGroupSelect01" name="computador" id="computador">
 						  	<option selected>Seleccionar</option>

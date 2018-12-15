@@ -64,15 +64,11 @@ class funciones{
     //--------------LISTA DEPARTAMENTOS
         public function departamentos(){
         $pdo = $this->pdo;
-        $sql = "SELECT NOMBRE FROM departamentos ORDER BY NOMBRE DESC";
+        $sql = "SELECT *FROM departamentos ORDER BY NOMBRE DESC";
         $query = $pdo->query($sql);
         $queryResult = $query->fetchAll(\PDO::FETCH_ASSOC);
         return $queryResult;
- echo "hola mundo";
-        $departamento= $queryResult;
-                session_start();
-                $departa_total= $request['departa_total'];
-                $_SESSION['departa_total']=$departamento;
+        
 }
 
 

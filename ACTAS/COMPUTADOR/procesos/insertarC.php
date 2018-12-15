@@ -15,7 +15,7 @@
             $computador,$acta);
         if($result) {
               	$resu["res"] = "si";
-            	$resu["msj"] = "Registro insertado";
+            	$resu["msj"] = "El documento se a creado con exito";
             } else {
                 $resu["res"] = "no";
             	$resu["msj"] = "Error al intentar insertar ";

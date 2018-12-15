@@ -11,7 +11,7 @@
         $result = $ins->addUser($para,$de, $asunto,$creador);
         if($result) {
               	$resu["res"] = "si";
-            	$resu["msj"] = "Registro insertado";
+            	$resu["msj"] = "Guardado con exito";
 
             } else {
                 $resu["res"] = "no";

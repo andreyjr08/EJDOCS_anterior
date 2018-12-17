@@ -8,6 +8,11 @@ class funciones{
     private $creador;
     private $de;
     private $asunto;
+
+    private $cedula;
+    private $nombres;
+    private $apellidos;
+    private $departamento;
 //---------computador---------------
     private $computador;
     private $activo_fijo;
@@ -103,6 +108,32 @@ class funciones{
             ]);
             return $result;
         }
+//---------ingresar un nuevo usuario
+//recopilacion de datos para ejecutar la insercion de un nuevo usuario
+        public function anadirUsuario($cedula, $nombres, $apellidos, $departamento){
+        $this->CEDULA= $cedula;
+        $this->NOMBRES = $nombres;
+        $this->APELLIDOS = $apellidos;
+        $this->DEPARTAMENTO_ID = $departamento;
+        $result = $this->InsertarUsuario();
+        return $result;
+    }
+    //consulta sql para insertar nuevo usuario
+     private function InsertarUsuario(){
+        $resu = array();
+        $pdo = $this->pdo;
+        $sql = "INSERT INTO usuarios (CEDULA, NOMBRES, APELLIDOS, DEPARTAMENTO_ID) VALUES (:cedula, :nombres, :apellidos, :departamentos)";
+        $query = $pdo->prepare($sql);
+        $result = $query->execute([//$result = $query->execute([
+            'cedula' => $this->CEDULA,
+            'nombres' => $this->NOMBRES,
+            'apellidos' => $this->APELLIDOS,
+            'departamento' => $this->DEPARTAMENTO_ID
+            ]);
+            return $result;
+        }
+//fin de la insercion 
+
         public function select_persons(){
         $pdo = $this->pdo;
         $sql = "SELECT a.ID,u.NOMBRES,u.APELLIDOS ,a.DE,a.ASUNTO,m.marca FROM computadores c INNER JOIN actas a INNER JOIN marcas_pc m  INNER JOIN usuarios u ON c.ACTA_ID = a.ID AND c.MARCA_ID = m.ID AND a.USUARIO_ID = u.CEDULA ";

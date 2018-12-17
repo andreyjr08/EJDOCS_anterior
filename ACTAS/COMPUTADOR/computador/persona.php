@@ -111,7 +111,7 @@ session_start();
         <div class="col-lg-12">
 			<label>DEPARTAMENTO</label>
 				<div class="input-group mb-3">
-						  <select class="form-control dimension" id="inputGroupSelect01">
+						  <select class="form-control dimension" id="inputGroupSelect01" name="departamento">
 						  	<option selected>Seleccionar</option>
 							<option value="<?php foreach($result2 as $departamento)echo $departamento['ID']?>"><?php foreach($result2 as $usuarios)echo $departamento['NOMBRE']?></option>
 						  </select>
@@ -121,6 +121,7 @@ session_start();
       <!-- Modal footer -->
       <div class="modal-footer">
         <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+        <input type="submit" value="Crear">
       </div>
 
     </div>

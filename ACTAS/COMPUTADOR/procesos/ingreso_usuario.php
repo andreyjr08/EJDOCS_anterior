@@ -8,7 +8,6 @@
         $apellidos=  $_POST['apellidos']; 
         $departamento = $_POST['departamento'];
 
-         echo " cedula= ".$cedula." apellidos= ".$apellidos." departamento= ".$departamento;
         $ins = new funciones();
         $result = $ins->anadirUsuario($cedula, $nombres, $apellidos, $departamento);
         if($result) {

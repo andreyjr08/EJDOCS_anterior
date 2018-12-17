@@ -10,6 +10,7 @@ session_start();
 ?>
 
 <script type="text/javascript" language="javascript" src="../ACTAS/COMPUTADOR/js/validacionP.js" ></script>
+<script type="text/javascript" language="javascript" src="../ACTAS/COMPUTADOR/js/validacion_ingreso_usuario.js" ></script>
 <div class="box-header">
    <div class="pull-right box-tools">
        <button class="btn btn-danger btn-sm btncerrar_nueva_acta_computador2" data-toggle="tooltip" title="Cerrar nueva acta"><i class="fas fa-times"></i></button>
@@ -87,7 +88,7 @@ session_start();
         <div class="col-lg-12">
 			<label>#CEDULA</label>
 				<div class="input-group mb-3">
-  					<input type="number" name="cedula" id="cedula" class="form-control" placeholder="Cedula" aria-label="Username" aria-describedby="basic-addon1">
+  					<input type="number" name="cedula2" id="cedula2" class="form-control" placeholder="Cedula" aria-label="Username" aria-describedby="basic-addon1">
 				</div>
 		</div>
       </div>
@@ -108,20 +109,22 @@ session_start();
 		</div>
       </div>
       <div class="modal-body">
-        <div class="col-lg-12">
-			<label>DEPARTAMENTO</label>
-				<div class="input-group mb-3">
-						  <select class="form-control dimension" id="inputGroupSelect01" name="departamento">
+		<div class="col-lg-12">
+					<label>DEPARTAMENTO</label>
+						<div class="input-group mb-3">
+						  <select class="form-control dimension" id="inputGroupSelect01" name="departamento" id="para">
 						  	<option selected>Seleccionar</option>
-							<option value="<?php foreach($result2 as $departamento)echo $departamento['ID']?>"><?php foreach($result2 as $usuarios)echo $departamento['NOMBRE']?></option>
+						  	<?php foreach($result2 as $departamento){ ?>
+                    			<option value="<?php echo $departamento['ID']; ?>"><?php echo $departamento['NOMBRE']; ?></option> 
+    						<?php } ?>
 						  </select>
 						</div>
-		</div>
+				</div>
       </div>
       <!-- Modal footer -->
       <div class="modal-footer">
         <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-        <input type="submit" value="Crear">
+        <input type="submit" id="btnEnviarU" value="Crear">
       </div>
 
     </div>

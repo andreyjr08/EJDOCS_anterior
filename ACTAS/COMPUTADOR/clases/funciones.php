@@ -32,8 +32,8 @@ class funciones{
         $this->CREADO_POR = $creador;
         $result = $this->Insertar();
         return $result;
-    }
-
+    } 
+    
          private function Insertar(){
          $resu = array();
         $pdo = $this->pdo;
@@ -110,19 +110,19 @@ class funciones{
         }
 //---------ingresar un nuevo usuario
 //recopilacion de datos para ejecutar la insercion de un nuevo usuario
-        public function anadirUsuario($cedula, $nombres, $apellidos, $departamento){
-        $this->CEDULA= $cedula;
-        $this->NOMBRES = $nombres;
+        public function anadirUsuario($cedula,$nombres, $apellidos, $departamento){
+        $this->CEDULA = $cedula;
+        $this->NOMBRES= $nombres; 
         $this->APELLIDOS = $apellidos;
         $this->DEPARTAMENTO_ID = $departamento;
-        $result = $this->InsertarUsuario();
+        $result = $this->insertarUsuario();
         return $result;
-    }
-    //consulta sql para insertar nuevo usuario
-     private function InsertarUsuario(){
-        $resu = array();
+    } 
+    
+         private function insertarUsuario(){
+         $resu = array();
         $pdo = $this->pdo;
-        $sql = "INSERT INTO usuarios (CEDULA, NOMBRES, APELLIDOS, DEPARTAMENTO_ID) VALUES (:cedula, :nombres, :apellidos, :departamentos)";
+        $sql = "INSERT INTO usuarios (CEDULA, NOMBRES, APELLIDOS, DEPARTAMENTO_ID) VALUES (:cedula, :nombres, :apellidos, :departamento)";
         $query = $pdo->prepare($sql);
         $result = $query->execute([//$result = $query->execute([
             'cedula' => $this->CEDULA,

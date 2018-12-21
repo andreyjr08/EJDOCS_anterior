@@ -22,7 +22,9 @@ $(document).ready(function(e) {
 			  success: function(dataType) {
 				if (dataType.res == "si") {
 					alert(dataType.msj);
-					  $("#cargaDeDatos").load('../ACTAS/COMPUTADOR/computador/computador.php');
+					 $('.modal-backdrop').remove();
+					 $("#cargaDeDatos").load('../ACTAS/COMPUTADOR/computador/persona.php');
+					 $('.btncerrar_nueva_acta_computador2').remove();
 				} else {
 					alert(dataType.msj);
 				}

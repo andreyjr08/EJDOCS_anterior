@@ -26,7 +26,7 @@
 	$pdf->Cell(40,5,'PARA',0);
 	$pdf->Cell(10,5,':',0);
 	$pdf->Cell(30,5,utf8_decode(''.utf8_decode($Result['NOMBRES'])),0);
-	$pdf->Cell(30,5,utf8_decode('  '.utf8_decode($Result['APELLIDOS'])),0);
+	$pdf->Cell(30,5,utf8_decode(' '.utf8_decode($Result['APELLIDOS'])),0);
 	$pdf->Ln(5);
 	$pdf->Cell(40,5,'#CEDULA',0);
 	$pdf->Cell(10,5,':',0);
@@ -73,9 +73,10 @@
 $pdf->SetFont('Arial','',11);
 	$pdf->MultiCell(160,6, utf8_decode('NOTA: Cualquier averia o daño a los equipos, causados por mal uso y cuyas reparaciones no se encuentren contempladas en la garantia, Deberan ser asumidas por el trabajador 50% y la compañia 50%, asi mismo en caso de no devolver el equipo en iguales condiciones a las aqui especificadas con los dispositivos adicionales entregados; en caso de robo el responsable debe presentar su debida denuncia policial y se exonerara de cualquier pago, en caso de ser por negligencia, descuido o no presentar dicha denuncia. El trabajador debe asumir el 100% del valor comercial del equipo aqui especificado. Por lo tanto, autorizo descontar del salario o prestaciones sociales el valor del equipo segun depreciacion en activos fijos.'),0,'J');
 	$pdf->Ln(5);
-	$pdf->Cell(30,5,utf8_decode('Recibe a sastisfaccion y acepta los terminos señalados'),0);
+	$pdf->Cell(100,5,utf8_decode('Recibe:'),0);
+	$pdf->Cell(30,5,utf8_decode('Entrega:'),0);
   	$pdf->Ln(25);
-  	$pdf->Cell(100,5,utf8_decode(''.utf8_decode($Result['NOMBRES'])),0);
+  	$pdf->Cell(100,5,utf8_decode(''.utf8_decode($Result['NOMBRES']).' '.utf8_decode($Result['APELLIDOS'])),0);
 	$pdf->Cell(40,5,'HARRY QUINTERO',0);
 	$pdf->Ln(5);
 	$pdf->Cell(100,5,'FIRMA',0);

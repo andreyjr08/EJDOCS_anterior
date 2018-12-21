@@ -3,7 +3,7 @@
     if (isset($_POST) && !empty($_POST)) {
         require_once('../clases/funciones.php');
         $resu = array();
-        $cedula = $_POST['cedula'];
+        $cedula = $_POST['cedula2'];
         $nombres =  $_POST['nombres'];
         $apellidos=  $_POST['apellidos']; 
         $departamento = $_POST['departamento'];

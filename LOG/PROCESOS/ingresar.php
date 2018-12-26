@@ -28,7 +28,7 @@
                 }
             } else {
                 $resu["res"] = "no";
-                $resu["msj"] = header('Location: index.html');
+                $resu["msj"] = header('Location: ../../index.php');
             }
 
             echo json_encode($resu);

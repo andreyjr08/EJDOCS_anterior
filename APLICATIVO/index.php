@@ -53,8 +53,8 @@
                     <ul>                
                       <div id="opciones">
                         <li><a href="../ACTAS/COMPUTADOR/computador/lista.php" role="button">Computador</a></li>
-                        <li><a href="">Celular</a></li>
-                        <li><a href="">Pantallas</a></li>
+                        <li><a href="#">Celular</a></li>
+                        <li><a href="../ACTAS/COMPUTADOR/pantalla/lista_pantalla.php">Pantallas</a></li>
                         <li><a href="">Disco Duro</a>
                         <li><a href="">Impresora</a> </li>
                         </div>

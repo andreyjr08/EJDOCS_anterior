@@ -1,15 +1,15 @@
 $(document).ready(function(e) {
 	
 	$("#btnEnviarU").click(function() {
-		 if( $("#cedula2").val().length == 0 ) {
-			alert("Debes ingresar una cedula");
+		 if( $("#cedula2").val().length < 8 ) {
+			alert("Debes ingresar una cedula valida");
 			document.frmModal.cedula2.focus();
 			return false;
-		} else if( $("#nombres").val().length == 0 ) {
+		} if( $("#nombres").val().length == 0 ) {
 			alert("Debes ingresar nombres validos");
 			document.frmModal.nombres.focus();
 			return false;
-		}else if( $("#apellidos").val().length == 0 ) {
+		} if( $("#apellidos").val().length == 0 ) {
 			alert("Debes ingresar apellidos validos");
 			document.frmModal.apellidos.focus();
 			return false;

@@ -86,7 +86,7 @@ session_start();
         <div class="col-lg-12">
 			<label>#CEDULA</label>
 				<div class="input-group mb-3">
-  					<input type="number" name="cedula2P" id="cedula2" class="form-control" placeholder="Cedula" aria-label="Username" aria-describedby="basic-addon1">
+  					<input type="number" name="cedula2" id="cedula2" class="form-control" placeholder="Cedula" aria-label="Username" aria-describedby="basic-addon1">
 				</div>
 		</div>
       </div>
@@ -94,7 +94,7 @@ session_start();
         <div class="col-lg-12">
 			<label>NOMBRES</label>
 				<div class="input-group mb-3">
-  					<input type="text" name="nombresP" id="nombresP" class="form-control" placeholder="nombres" aria-label="Username" aria-describedby="basic-addon1">
+  					<input type="text" name="nombres" id="nombresP" class="form-control" placeholder="nombres" aria-label="Username" aria-describedby="basic-addon1">
 				</div>
 		</div>
       </div>
@@ -102,7 +102,7 @@ session_start();
         <div class="col-lg-12">
 			<label>APELLIDOS</label>
 				<div class="input-group mb-3">
-  					<input type="text" name="apellidosP" id="apellidosP" class="form-control" placeholder="Apellidos" aria-label="Username" aria-describedby="basic-addon1">
+  					<input type="text" name="apellidos" id="apellidosP" class="form-control" placeholder="Apellidos" aria-label="Username" aria-describedby="basic-addon1">
 				</div>
 		</div>
       </div>

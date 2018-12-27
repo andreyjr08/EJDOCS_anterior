@@ -12,7 +12,7 @@ $result = $usuarios ->select_persons();
 <div class="box-header">
     <i class="ion ion-clipboard"></i>
     <div class="pull-right box-tools col-md-1 col-lg-1 col-xs-1">
-        <button class="btn btn-primary btn-sm" id="nuevo_computador" data-toggle="tooltip" title="Nueva acta Computador">
+        <button class="btn btn-primary btn-sm" id="nueva_pantalla" data-toggle="tooltip" title="Nueva acta pantalla">
             <i class="fas fa-plus" aria-hidden="true"></i>
         </button>
     </div>
@@ -20,15 +20,16 @@ $result = $usuarios ->select_persons();
         <button class="btn btn-primary btn-sm" id="nuevo_computador" data-toggle="tooltip" title="Acta computador">
            <i class="fas fa-desktop"></i>
         </button>
+        <button class="btn btn-primary btn-sm" id="nueva_pantalla" data-toggle="tooltip" title="Acta pantalla">
+            <i class="fas fa-tv"></i>
+        </button>
         <button class="btn btn-primary btn-sm" id="nuevo_celular" data-toggle="tooltip" title="Acta celular">
             <i class="fas fa-mobile-alt"></i>
         </button>
         <button class="btn btn-primary btn-sm" id="nueva_impresora" data-toggle="tooltip" title="Acta impresora">
             <i class="fas fa-print"></i>
         </button>
-        <button class="btn btn-primary btn-sm" id="nueva_impresora" data-toggle="tooltip" title="Acta pantalla">
-            <i class="fas fa-tv"></i>
-        </button>
+
     </div>
 </div>
 

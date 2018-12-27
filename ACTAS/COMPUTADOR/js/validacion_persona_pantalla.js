@@ -5,14 +5,12 @@ $(document).ready(function(e) {
 		 if( $("#de").val().length == 0 ) {
 			alert("Debes ingresar quien envia la acta");
 			document.frmDatosP.de.focus();
-			return false;
-		}
-		if( $("#asunto").val().length == 0 ) {
+			if( $("#asunto").val().length == 0 ) {
 			alert("Debes ingresar el asunto de la acta");
 			document.frmDatosP.asunto.focus();
 			return false;
-		}
-		 else {
+		}return false;
+		} else {
 			$.ajax({
 			  url: "../ACTAS/COMPUTADOR/procesos/insertarP.php",
 			  type: 'post',
@@ -21,7 +19,7 @@ $(document).ready(function(e) {
 			  success: function(dataType) {
 				if (dataType.res == "si") {
 					alert(dataType.msj);
-					  $("#cargaDeDatos").load('../ACTAS/COMPUTADOR/computador/computador.php');
+					  $("#cargaDeDatos").load('../ACTAS/COMPUTADOR/pantalla/pantalla.php');
 				} else {
 					alert(dataType.msj);
 				}

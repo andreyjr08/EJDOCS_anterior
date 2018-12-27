@@ -21,6 +21,10 @@ class funciones{
     private $memoria_ram;
     private $serial_cargador;
     private $acta;
+//--------pantalla------
+    private $serialP;
+    private $pantalla;
+    private $actaP;
 
      public function __construct(){
         $this->pdo = new config();
@@ -58,10 +62,20 @@ class funciones{
         $queryResult = $query->fetchAll(\PDO::FETCH_ASSOC);
         return $queryResult;
         }
+    //LISTA DE COMPUTADORES 
         public function marcas_pc()
         {
         $pdo = $this->pdo;
         $sql = "SELECT * FROM marcas_pc ORDER BY MARCA DESC";
+        $query = $pdo->query($sql);
+        $queryResult = $query->fetchAll(\PDO::FETCH_ASSOC);
+        return $queryResult;
+        }
+    //LISTA PANTALLAS
+          public function marcas_pant()
+        {
+        $pdo = $this->pdo;
+        $sql = "SELECT * FROM marcas_pant ORDER BY MARCA DESC";
         $query = $pdo->query($sql);
         $queryResult = $query->fetchAll(\PDO::FETCH_ASSOC);
         return $queryResult;
@@ -105,6 +119,27 @@ class funciones{
             'serial_cargador' => $this->SERIAL_CARGADOR,
             'computador' => $this->MARCA_ID,
             'acta' => $this->ACTA_ID,
+            ]);
+            return $result;
+        }
+             //recopilacion de datos para ejecutar la insercion de una nueva pantalla
+        public function anadirPantalla($serialP,$pantalla,$actaP){
+        $this->SERIAL= $serialP;
+        $this->MODELO_PANT = $pantalla;
+        $this->ACTA_ID = $actaP;
+        $result = $this->InsertarComputador();
+        return $result;
+    }
+    //consulta sql para insertar nueva pantalla
+     private function InsertarPantalla(){
+        $resu = array();
+        $pdo = $this->pdo;
+        $sql = "INSERT INTO pantallas (SERIAL,MODELO_PANT,ACTA_ID) VALUES (:serialp,:pantalla,:actaP)";
+        $query = $pdo->prepare($sql);
+        $result = $query->execute([//$result = $query->execute([
+            'serialP' => $this->SERIAL,
+            'pantalla' => $this->MODELO_PANT,
+            'actaP' => $this->ACTA_ID,
             ]);
             return $result;
         }

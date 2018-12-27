@@ -28,5 +28,9 @@
         $("#titulo").html("Nueva acta computador");
         $( "#contenido" ).load("../ACTAS/COMPUTADOR/computador/persona.php");
     })
+      $("#contenido").on("click","button#nueva_pantalla",function(){
+        $("#titulo").html("Nueva acta pantalla");
+        $( "#contenido" ).load("../ACTAS/COMPUTADOR/pantalla/persona.php");
+    })
 
 

@@ -40,7 +40,7 @@ $result = $usuarios ->select_persons();
             <td>PARA</td>
             <td>DE</td>
             <td>ASUNTO</td>
-            <td>COMPUTADOR</td>
+            <td>PANTALLA</td>
             <td>OPCION</td>
             <td>REPORTE</td>
         </tr>

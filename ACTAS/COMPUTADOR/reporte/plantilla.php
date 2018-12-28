@@ -25,8 +25,8 @@
 
 	$pdf->Cell(40,5,'PARA',0);
 	$pdf->Cell(10,5,':',0);
-	$pdf->Cell(30,5,utf8_decode(''.utf8_decode($Result['NOMBRES'])),0);
-	$pdf->Cell(30,5,utf8_decode(' '.utf8_decode($Result['APELLIDOS'])),0);
+	$pdf->Cell(38,5,utf8_decode(''.utf8_decode($Result['NOMBRES'])),0);
+	$pdf->Cell(70,5,utf8_decode(' '.utf8_decode($Result['APELLIDOS'])),0);
 	$pdf->Ln(5);
 	$pdf->Cell(40,5,'#CEDULA',0);
 	$pdf->Cell(10,5,':',0);
